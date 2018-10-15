@@ -54,7 +54,7 @@ public class Controller implements Initializable {
 
     @FXML
     public void addtoWord(ActionEvent event) {
-        if (themenglish.getText() != "" && themtv.getText() != "") {
+        if (!themenglish.getText().equals("") && !themtv.getText().equals("")) {
             dictionaryCommandline.addWord(themenglish.getText(), themtv.getText());
             themenglish.clear();
             themtv.clear();
@@ -68,6 +68,7 @@ public class Controller implements Initializable {
 
 
     public void handleMouseClick(MouseEvent event) {
+        textField.setText(list_english.getSelectionModel().getSelectedItem());
         dictionaryManagement.insertFromFile();
         String S = list_english.getSelectionModel().getSelectedItems().toString();
         String word_english = S.substring(1, S.length() - 1);
